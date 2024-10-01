@@ -1,0 +1,325 @@
+/* Estilos generales para computadoras */
+body {
+    display: flex;
+    background-image: url('vene/fondo.png');
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Para evitar barras de desplazamiento debido a la animación */
+}
+
+#marco {
+    border: 2px solid #b9161600;
+    width: 900px; /* Ancho del marco */
+    height: 700px; /* Alto del marco ajustado */
+    position: relative;
+    overflow: hidden; /* Para recortar el contenido que exceda el marco */
+}
+.bala-rival {
+    width: 5px;
+    height: 10px;
+    background-color: red; /* Color diferente para las balas de los rivales */
+    position: absolute;
+    z-index: 10;
+}
+/* CSS */
+.avion-izquierda {
+    transform: rotateY(180deg); /* Rota el avión hacia la izquierda */
+}
+
+#fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('vene/cielo1.jpg');
+    background-repeat: repeat-x;
+    background-size: auto 110%; /* Ajusta el tamaño del fondo */
+    
+}
+
+@keyframes moverFondo {
+    from {
+        background-position: 0 0; /* Posición inicial del fondo */
+    }
+    to {
+        background-position: -9500px 0; /* Posición final del fondo (ajustar según necesidad) */
+    }
+}
+
+/* Nubes */
+.nube {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1; /* Asegúrate de que las nubes estén detrás del contenido */
+    animation: moverNubes linear infinite; /* Animación para mover las nubes en la dirección opuesta */
+}
+
+/* Clases para diferentes nubes */
+.nube1 { background-image: url('vene/nube1.png'); width: 900px; height: 500px; animation-duration: 40s; }
+.nube2 { background-image: url('vene/nube2.png'); width: 900px; height: 500px; animation-duration: 45s; }
+.nube3 { background-image: url('vene/nube3.png'); width: 900px; height: 500px; animation-duration: 40s; }
+.nube4 { background-image: url('vene/nube1.png'); width: 900px; height: 500px; animation-duration: 45s; }
+.nube5 { background-image: url('vene/nube2.png'); width: 900px; height: 500px; animation-duration: 40s; }
+.nube6 { background-image: url('vene/nube1.png'); width: 900px; height: 500px; animation-duration: 40s; }
+.nube7 { background-image: url('vene/nube3.png'); width: 900px; height: 500px; animation-duration: 40s; }
+
+@keyframes moverNubes {
+    from {
+        left: 100%; /* Empieza fuera del marco por la derecha */
+    }
+    to {
+        left: -150px; /* Termina fuera del marco por la izquierda (ajustar según el tamaño de la nube) */
+    }
+}
+
+.nube1 { animation: moverNubes 170s linear infinite; }
+.nube2 { animation: moverNubes 8s linear infinite; }
+.nube3 { animation: moverNubes 6s linear infinite; }
+.nube4 { animation: moverNubes 10s linear infinite; }
+.nube5 { animation: moverNubes 8s linear infinite; }
+.nube6 { animation: moverNubes 6s linear infinite; }
+.nube7 { animation: moverNubes 10s linear infinite; }
+
+
+/* Ejemplos de posiciones para las nubes */
+.avion-rival {
+    position: absolute;
+    width: 80px; /* Ajusta el tamaño según tu imagen */
+    height: 50px; /* Ajusta el tamaño según tu imagen */
+    
+}
+
+#avion {
+    position: absolute;
+    width: 90px; /* Ajusta el ancho según tu diseño */
+    height: 60px; /* Ajusta la altura según tu diseño */
+    transition: transform 0.0s; /* Para suavizar la rotación */
+}
+
+
+.bala {
+    position: absolute;
+    width: 7px;
+    height: 14px;
+    background-image: url('vene/bala.png'); /* Ruta de la imagen */
+    background-size: cover; /* Asegura que la imagen cubra toda el área del div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    border-radius: 3px; /* Opcional, añade esquinas redondeadas */
+}
+
+
+#puntuacion {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+#vidas {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 100px;
+    height: 20px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+#vidas-barra {
+    width: 100%; /* Inicialmente al 100% */
+    height: 100%;
+    background-color: green;
+}
+
+#timón {
+    position: absolute;
+    bottom: 5px; /* Ajusta para que el timón esté fuera del marco */
+    right: 10px;
+    width: 90px; /* Tamaño más grande del timón */
+    height: 100px; /* Tamaño más grande del timón */
+    transition: transform 0.1s; /* Suaviza el movimiento del timón */
+    transition: top 0.3s ease; /* Transición suave para el movimiento vertical */
+    /* Otros estilos... */
+}
+
+@keyframes parpadear {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.boton-parpadeante {
+    animation: parpadear 0.5s infinite;
+}
+
+.boton {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff82;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* Estilo para el botón de iniciar */
+#btnIniciar {
+    position: absolute; /* Posición absoluta para poder centrarlo */
+    top: 50%; /* Posicionarlo verticalmente en el medio */
+    left: 50%; /* Posicionarlo horizontalmente en el medio */
+    transform: translate(-50%, -50%); /* Ajustar para centrar perfectamente */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño del texto */
+    color: white; /* Color del texto */
+    background-color: #007bff; /* Color de fondo del botón (azul) */
+    border: none; /* Quitar borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+#btnIniciar:hover {
+    background-color: #0056b3; /* Color de fondo cuando el mouse está sobre el botón */
+}
+#btnA { top: 330px; left: 10px; }
+#btnS { top: 390px; left: 10px; }
+#btnW { top: 450px; left: 10px; }
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 790px) {
+    body {
+        background-image: url('vene/fondo.png'); /* Imagen de fondo para móviles */
+    }
+
+    #marco {
+        width: 99%; /* Ancho ajustable al 99% de la pantalla */
+        height: 460px; /* Ajusta la altura del marco en móviles */
+    }
+
+    #fondo {
+        background-image: url('vene/cielo1.jpg'); /* Fondo específico para móviles */
+        background-size: cover; /* Ajustar para que cubra toda la pantalla */
+    }
+
+    .avion-rival {
+        width: 50px; /* Tamaño más pequeño para los aviones rivales */
+        height: 40px;
+    }
+
+    #avion {
+        width: 80px; /* Ajusta el tamaño del avión principal */
+        height: 40px;
+    }
+
+    .bala {
+        width: 9px; /* Ajusta el tamaño de las balas */
+        height: 9px;
+    }
+
+    #puntuacion {
+        font-size: 20px; /* Fuente más pequeña para la puntuación en móviles */
+    }
+
+    #vidas {
+        top: 40px;
+        right: 10px;
+        width: 70px;
+        height: 10px;
+    }
+
+    #timón {
+        width: 80px;
+        height: 90px; /* Tamaño ajustado para el timón en móviles */
+    }
+
+    .boton {
+        width: 45px;
+        height: 45px;
+        font-size: 16px; /* Fuente más pequeña para botones en móviles */
+    }
+
+    #btnA { top: 220px; left: 10px; } /* Ajuste de posición para móviles */
+    #btnS { top: 273px; left: 10px; }
+    #btnW { top: 327px; left: 10px; }
+}
+/* Estilos existentes... */
+
+.controles {
+    position: absolute; /* Permite posicionar los botones fuera del marco */
+    right: 5%; /* Cambia a 'right' para mover todo el grupo de botones más a la derecha */
+    bottom: 10%; /* Ajusta según sea necesario para la ubicación vertical */
+}
+
+.boton {
+    width: 50px; /* Ajusta el tamaño de los botones */
+    height: 50px; /* Ajusta el tamaño de los botones */
+    font-size: 20px; /* Tamaño de la fuente para que sea legible */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    margin: 10px; /* Espaciado entre botones */
+}
+
+/* Estilo específico para la posición de cada botón */
+#btnArriba {
+    position: absolute;
+    bottom: 70%; /* Posición vertical del botón arriba */
+    right: 15%; /* Ajusta para mover a la derecha */
+}
+
+#btnAbajo {
+    position: absolute;
+    bottom: 30%; /* Posición vertical del botón abajo */
+    right: 15%; /* Ajusta para mover a la derecha */
+}
+
+#btnIzquierda {
+    position: absolute;
+    bottom: 50%; /* Posición vertical del botón izquierda */
+    right: 25%; /* Ajusta la posición horizontal para estar más a la derecha */
+}
+
+#btnDerecha {
+    position: absolute;
+    bottom: 50%; /* Posición vertical del botón derecha */
+    right: 5%; /* Ajusta la posición horizontal para estar más a la derecha */
+}
+@media (max-width: 600px) { /* Para pantallas menores a 600px */
+    .btn-control {
+        width: 40px; /* Ajusta el tamaño para móviles */
+        height: 40px; /* Ajusta el tamaño para móviles */
+        font-size: 10px; /* Ajusta el tamaño del texto */
+    }
+}
+.btn-control {
+    background-color: rgba(236, 57, 12, 0.169); /* Fondo blanco semi-transparente */
+    border: none; /* Sin borde */
+    color: black; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    /* Agrega más estilos según sea necesario */
+}
+@media (max-width: 400px) { /* Para pantallas menores a 400px */
+    .btn-control {
+        width: 60px; /* Ajusta aún más el tamaño para móviles pequeños */
+        height: 45px; /* Ajusta aún más el tamaño para móviles pequeños */
+        font-size: 18px; /* Ajusta aún más el tamaño del texto */
+    }
+}
+.blink {
+    animation: blink-animation 0.5s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}

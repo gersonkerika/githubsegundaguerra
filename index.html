@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Avión en Marco</title>
+    <link rel="stylesheet" href="vene.css"> <!-- Enlaza el archivo CSS -->
+</head>
+<body>
+    <div id="marco">
+        <!-- Nubes en el cielo -->
+        <div class="nube nube1" style="top: -10%; left: 150%;"></div>
+        <div class="nube nube2" style="top: -5%; left: 150%;"></div>
+        <div class="nube nube3" style="top: 0%; left: 150%;"></div>
+        <div class="nube nube4" style="top: 5%; left: 200%;"></div>
+        <div class="nube nube5" style="top: 10%; left: 200%;"></div>
+        <div class="nube nube6" style="top: 15%; left: 200%;"></div>
+        <div class="nube nube7" style="top: 20%; left: 200%;"></div>
+
+        <img id="avion" src="vene/avionrival5.gif" alt="Avión rival animado" class="avion">
+
+        <!-- Contenedor del helicóptero -->
+        <div id="contenedor">
+            <div id="helicoptero"></div> <!-- Contenedor del helicóptero -->
+        </div>
+
+        <!-- Otros elementos del juego -->
+        <button id="btnA" class="boton">A</button>
+        <button id="btnIniciar">Iniciar Juego</button>
+        <button id="btnS" class="boton">S</button>
+        <button id="btnW" class="boton">W</button>
+        <button id="pausarBtn">Pausar</button>
+        <button id="reanudarBtn">Reanudar</button>
+
+        <div id="controles">
+            <button class="btn-control" id="btnArriba">↑</button>
+            <button class="btn-control" id="btnAbajo">↓</button>
+            <button class="btn-control" id="btnIzquierda">←</button>
+            <button class="btn-control" id="btnDerecha">→</button>
+        </div>
+        
+        <div id="fondo"></div>
+        <div id="puntuacion">Puntuación: 0</div>
+    </div>
+
+    <!-- Elemento de audio para la música del juego -->
+    <audio id="musicaFondo" src="vene/musica.mp3" preload="auto"></audio>
+    <audio id="sonido-bala" src="vene/bala.mp3" preload="auto"></audio>
+    <script src="venezuela.js"></script> <!-- Enlaza el archivo JS -->
+</body>
+</html>
